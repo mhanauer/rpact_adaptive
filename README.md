@@ -16,6 +16,7 @@ design <- getDesignGroupSequential(typeOfDesign = "OF", informationRates = c(.2,
 summary(getSampleSizeMeans(design, normalApproximation = FALSE, meanRatio = FALSE, thetaH0 = 0, stDev = 1, groups = 2, allocationRatioPlanned = 1))
 ```
 Try simulation means
+Non-inferior study set h1 to the effect you expect.
 ```{r}
 summary(getSimulationMeans(design, meanRatio = FALSE, thetaH0 = 0,
   alternative = c(0.2, 0.6, 1), stDev = 1, groups = 2, plannedSubjects = c(20,40,60,80,100)))
@@ -27,5 +28,9 @@ plot(design)
 ```
 
 
-Non-inferior study set h1 to the effect you expect.
+
+```{r}
+dat = data.frame(a = rnorm(20), b = rnorm(20))
+write.csv(dat, "dat.csv", row.names = FALSE)
+```
 
